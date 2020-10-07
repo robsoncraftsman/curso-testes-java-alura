@@ -1,6 +1,9 @@
 package com.robsoncrafstman.testes.java.service;
 
+import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import com.robsoncrafstman.testes.java.domain.Lance;
 import com.robsoncrafstman.testes.java.domain.Leilao;
@@ -16,19 +19,25 @@ public class Avaliador {
 	}
 
 	public Lance obterMenorLance(final Leilao leilao) {
-		final var menorLance = leilao.getLances()
+		return leilao.getLances()
 				.stream()
 				.min(Comparator.comparing(Lance::getValor))
 				.orElse(null);
-		return menorLance;
 	}
 
 	public Lance obterMaiorLance(final Leilao leilao) {
-		final var menorLance = leilao.getLances()
+		return leilao.getLances()
 				.stream()
 				.max(Comparator.comparing(Lance::getValor))
 				.orElse(null);
-		return menorLance;
+	}
+
+	public List<Lance> obterTresMaioresLances(final Leilao leilao) {
+		return leilao.getLances()
+				.stream()
+				.sorted(Comparator.comparing(Lance::getValor).reversed())
+				.limit(3)
+				.collect(Collectors.toCollection(ArrayList::new));
 	}
 
 }
