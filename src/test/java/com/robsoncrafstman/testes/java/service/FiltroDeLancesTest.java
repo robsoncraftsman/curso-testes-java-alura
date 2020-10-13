@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import com.robsoncrafstman.testes.java.domain.Lance;
 import com.robsoncrafstman.testes.java.domain.Usuario;
 
-public class FiltroDeLancesTestCase {
+public class FiltroDeLancesTest {
 
 	@Test
 	public void deveSelecionarLancesMaioresQuer500EMenoresQue700() {

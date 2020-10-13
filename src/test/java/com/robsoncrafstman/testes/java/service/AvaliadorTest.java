@@ -10,7 +10,7 @@ import com.robsoncrafstman.testes.java.domain.Lance;
 import com.robsoncrafstman.testes.java.domain.Leilao;
 import com.robsoncrafstman.testes.java.domain.Usuario;
 
-public class AvaliadorTestCase {
+public class AvaliadorTest {
 
 	private Leilao newLeilaoSemLances() {
 		return new Leilao("Vazio");

@@ -3,7 +3,7 @@ package com.robsoncrafstman.testes.java.service;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class MatematicaMalucaTestCase {
+public class MatematicaMalucaTest {
 
 	public static final int MENOS_TRINTA = -30;
 	public static final int MENOS_DEZ = -10;
