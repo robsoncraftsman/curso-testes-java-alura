@@ -2,9 +2,14 @@ package com.robsoncrafstman.testes.java.domain;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import com.robsoncrafstman.testes.java.domain.expection.UsuarioNaoOfereceuLanceAnteriorParaDobrarValor;
+import com.robsoncrafstman.testes.java.domain.expection.UsuarioNaoPodeDarDoisLancesSeguidosException;
+import com.robsoncrafstman.testes.java.domain.expection.UsuarioNaoPodeDarMaisQueCincoLancesException;
 
 public class Leilao {
 
@@ -18,12 +23,64 @@ public class Leilao {
 		this.valoresLances = new HashMap<>();
 	}
 
-	public void lance(final Lance lance) {
-		if (this.valoresLances.containsKey(lance.getValor())) {
-			throw new IllegalArgumentException("Valor do lance já foi ofertado");
+	private long countNroLances(final Usuario usuario) {
+		return getLances().stream().filter(l -> l.getUsuario().equals(usuario)).count();
+	}
+
+	private Lance getUltimoLance() {
+		final var nroLances = this.lances.size();
+		if (nroLances > 0) {
+			return this.lances.get(nroLances - 1);
+		} else {
+			return null;
 		}
+	}
+
+	private Lance getMarorLanceUsuario(final Usuario usuario) {
+		return getLances().stream()
+				.filter(l -> l.getUsuario().equals(usuario))
+				.max(Comparator.comparing(Lance::getValor))
+				.orElse(null);
+	}
+
+	private void validaLanceValorDuplicado(final Lance lance) {
+		final var valor = lance.getValor();
+		if (this.valoresLances.containsKey(valor)) {
+			throw new IllegalArgumentException(String.format("Lance no valor de '%f' já foi ofertado", valor));
+		}
+	}
+
+	private void validaUsuarioDiferenteUltimoLance(final Lance lance) {
+		final var ultimoLance = getUltimoLance();
+		final var usuario = lance.getUsuario();
+		if ((ultimoLance != null) && ultimoLance.getUsuario().equals(usuario)) {
+			throw new UsuarioNaoPodeDarDoisLancesSeguidosException(usuario);
+		}
+	}
+
+	private void validaSeUsuarioJaOfereceuCincoLances(final Lance lance) {
+		final var usuario = lance.getUsuario();
+		if (countNroLances(usuario) >= 5) {
+			throw new UsuarioNaoPodeDarMaisQueCincoLancesException(usuario);
+		}
+	}
+
+	public void lance(final Lance lance) {
+		validaLanceValorDuplicado(lance);
+		validaUsuarioDiferenteUltimoLance(lance);
+		validaSeUsuarioJaOfereceuCincoLances(lance);
 		this.lances.add(lance);
 		this.valoresLances.put(lance.getValor(), lance);
+	}
+
+	public void dobraLance(final Usuario usuario) {
+		final var maiorLanceUsuario = getMarorLanceUsuario(usuario);
+		if (maiorLanceUsuario != null) {
+			final var lanceValorEmDobro = new Lance(maiorLanceUsuario.getUsuario(), maiorLanceUsuario.getValor() * 2);
+			lance(lanceValorEmDobro);
+		} else {
+			throw new UsuarioNaoOfereceuLanceAnteriorParaDobrarValor(usuario);
+		}
 	}
 
 	public String getDescricao() {

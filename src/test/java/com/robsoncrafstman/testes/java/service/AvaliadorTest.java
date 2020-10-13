@@ -2,7 +2,6 @@ package com.robsoncrafstman.testes.java.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
@@ -68,18 +67,6 @@ public class AvaliadorTest {
 		leilao.lance(new Lance(maria, 1200));
 
 		return leilao;
-	}
-
-	@Test
-	public void naoDevePermitirDoisLancesComMesmoValor() {
-		assertThrows(IllegalArgumentException.class, () -> {
-			final var joao = new Usuario(1, "João");
-			final var maria = new Usuario(2, "Maria");
-
-			final var leilao = new Leilao("Carro novo");
-			leilao.lance(new Lance(joao, 2000));
-			leilao.lance(new Lance(maria, 2000));
-		});
 	}
 
 	@Test
