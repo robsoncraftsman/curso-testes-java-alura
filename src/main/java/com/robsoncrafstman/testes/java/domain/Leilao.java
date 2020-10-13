@@ -65,12 +65,23 @@ public class Leilao {
 		}
 	}
 
+	private void validaValorLance(final Lance lance) {
+		if (lance.getValor() <= 0) {
+			throw new IllegalArgumentException("Valor do lance deve ser maior que zero");
+		}
+	}
+
 	public void lance(final Lance lance) {
+		validaValorLance(lance);
 		validaLanceValorDuplicado(lance);
 		validaUsuarioDiferenteUltimoLance(lance);
 		validaSeUsuarioJaOfereceuCincoLances(lance);
 		this.lances.add(lance);
 		this.valoresLances.put(lance.getValor(), lance);
+	}
+
+	public void lance(final Usuario usuario, final double valor) {
+		lance(new Lance(usuario, valor));
 	}
 
 	public void dobraLance(final Usuario usuario) {
