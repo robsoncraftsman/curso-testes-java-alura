@@ -1,6 +1,10 @@
 package com.robsoncrafstman.testes.java.domain;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static com.robsoncrafstman.testes.java.matcher.LeilaoMatcher.temLance;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.sameInstance;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
@@ -17,23 +21,25 @@ public class LeilaoTest {
 	@Test
 	public void deveReceberUmLance() {
 		final var leilao = new Leilao("Carro Novo");
-		assertEquals(0, leilao.getLances().size());
+		assertThat(leilao.getLances().size(), is(0));
 
-		leilao.lance(this.joao, 200);
-		assertEquals(1, leilao.getLances().size());
-		assertEquals(200, leilao.getLances().get(0).getValor());
+		final var lance = new Lance(this.joao, 200);
+		leilao.lance(lance);
+
+		assertThat(leilao.getLances().size(), is(1));
+		assertThat(leilao, temLance(lance));
 	}
 
 	@Test
 	public void deveReceberDoisLances() {
 		final var leilao = new Leilao("Carro Novo");
-		assertEquals(0, leilao.getLances().size());
-
-		leilao.lance(this.joao, 200);
-		leilao.lance(this.maria, 300);
-		assertEquals(2, leilao.getLances().size());
-		assertEquals(200, leilao.getLances().get(0).getValor());
-		assertEquals(300, leilao.getLances().get(1).getValor());
+		final var lanceJoao = new Lance(this.joao, 200);
+		final var lanceMaria = new Lance(this.maria, 300);
+		leilao.lance(lanceJoao);
+		leilao.lance(lanceMaria);
+		assertThat(leilao.getLances(), hasSize(2));
+		assertThat(leilao, temLance(lanceJoao));
+		assertThat(leilao, temLance(lanceMaria));
 	}
 
 	@Test
@@ -46,7 +52,7 @@ public class LeilaoTest {
 			leilao.lance(this.maria, valor);
 		});
 
-		assertEquals(String.format("Lance no valor de '%f' já foi ofertado", valor), resultException.getMessage());
+		assertThat(resultException.getMessage(), is(String.format("Lance no valor de '%f' já foi ofertado", valor)));
 	}
 
 	@Test
@@ -59,7 +65,7 @@ public class LeilaoTest {
 		});
 
 		final var expectedException = new UsuarioNaoPodeDarDoisLancesSeguidosException(this.joao);
-		assertEquals(expectedException.getMessage(), resultException.getMessage());
+		assertThat(resultException.getMessage(), is(expectedException.getMessage()));
 	}
 
 	@Test
@@ -82,8 +88,8 @@ public class LeilaoTest {
 		});
 
 		final var expectedException = new UsuarioNaoPodeDarMaisQueCincoLancesException(this.joao);
-		assertEquals(expectedException.getMessage(), resultException.getMessage());
-		assertEquals(10, leilao.getLances().size());
+		assertThat(resultException.getMessage(), is(expectedException.getMessage()));
+		assertThat(leilao.getLances(), hasSize(10));
 	}
 
 	@Test
@@ -97,13 +103,13 @@ public class LeilaoTest {
 		leilao.dobraLance(this.joao);
 		leilao.dobraLance(this.maria);
 
-		assertEquals(6, leilao.getLances().size());
+		assertThat(leilao.getLances().size(), is(6));
 		final var lanceValorEmDobroJoao = leilao.getLances().get(4);
-		assertEquals(this.joao, lanceValorEmDobroJoao.getUsuario());
-		assertEquals(600, lanceValorEmDobroJoao.getValor());
+		assertThat(lanceValorEmDobroJoao.getUsuario(), sameInstance(this.joao));
+		assertThat(lanceValorEmDobroJoao.getValor(), is(600d));
 		final var lanceValorEmDobroMaria = leilao.getLances().get(5);
-		assertEquals(this.maria, lanceValorEmDobroMaria.getUsuario());
-		assertEquals(800, lanceValorEmDobroMaria.getValor());
+		assertThat(lanceValorEmDobroMaria.getUsuario(), sameInstance(this.maria));
+		assertThat(lanceValorEmDobroMaria.getValor(), is(800d));
 	}
 
 	@Test
@@ -115,7 +121,7 @@ public class LeilaoTest {
 		});
 
 		final var expectedException = new UsuarioNaoOfereceuLanceAnteriorParaDobrarValor(this.joao);
-		assertEquals(expectedException.getMessage(), resultException.getMessage());
+		assertThat(resultException.getMessage(), is(expectedException.getMessage()));
 	}
 
 	@Test
@@ -126,7 +132,7 @@ public class LeilaoTest {
 			leilao.lance(this.joao, 0);
 		});
 
-		assertEquals("Valor do lance deve ser maior que zero", resultException.getMessage());
+		assertThat(resultException.getMessage(), is("Valor do lance deve ser maior que zero"));
 	}
 
 	@Test
@@ -137,7 +143,7 @@ public class LeilaoTest {
 			leilao.lance(this.joao, -1);
 		});
 
-		assertEquals("Valor do lance deve ser maior que zero", resultException.getMessage());
+		assertThat(resultException.getMessage(), is("Valor do lance deve ser maior que zero"));
 	}
 
 }
