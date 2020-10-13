@@ -3,7 +3,9 @@ package com.robsoncrafstman.testes.java.service;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -17,6 +19,16 @@ public class AvaliadorTest {
 	private Usuario joao;
 	private Usuario maria;
 	private Usuario pedro;
+
+	@BeforeAll
+	public static void testandoBeforeClass() {
+		System.out.println("before all");
+	}
+
+	@AfterAll
+	public static void testandoAfterClass() {
+		System.out.println("after all");
+	}
 
 	@BeforeEach
 	private void prepararDadosTeste() {
