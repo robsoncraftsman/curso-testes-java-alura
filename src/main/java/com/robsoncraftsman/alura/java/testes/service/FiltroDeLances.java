@@ -1,9 +1,9 @@
-package com.robsoncrafstman.testes.java.service;
+package com.robsoncraftsman.alura.java.testes.service;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.robsoncrafstman.testes.java.domain.Lance;
+import com.robsoncraftsman.alura.java.testes.domain.Lance;
 
 public class FiltroDeLances {
 

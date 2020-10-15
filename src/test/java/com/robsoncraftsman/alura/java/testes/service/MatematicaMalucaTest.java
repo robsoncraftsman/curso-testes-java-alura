@@ -1,4 +1,4 @@
-package com.robsoncrafstman.testes.java.service;
+package com.robsoncraftsman.alura.java.testes.service;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

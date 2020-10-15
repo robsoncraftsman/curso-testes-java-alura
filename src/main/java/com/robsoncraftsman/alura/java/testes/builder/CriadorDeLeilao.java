@@ -1,8 +1,8 @@
-package com.robsoncrafstman.testes.java.builder;
+package com.robsoncraftsman.alura.java.testes.builder;
 
-import com.robsoncrafstman.testes.java.domain.Lance;
-import com.robsoncrafstman.testes.java.domain.Leilao;
-import com.robsoncrafstman.testes.java.domain.Usuario;
+import com.robsoncraftsman.alura.java.testes.domain.Lance;
+import com.robsoncraftsman.alura.java.testes.domain.Leilao;
+import com.robsoncraftsman.alura.java.testes.domain.Usuario;
 
 public class CriadorDeLeilao {
 

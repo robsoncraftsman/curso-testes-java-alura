@@ -1,11 +1,11 @@
-package com.robsoncrafstman.testes.java.matcher;
+package com.robsoncraftsman.alura.java.testes.matcher;
 
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 
-import com.robsoncrafstman.testes.java.domain.Lance;
-import com.robsoncrafstman.testes.java.domain.Leilao;
+import com.robsoncraftsman.alura.java.testes.domain.Lance;
+import com.robsoncraftsman.alura.java.testes.domain.Leilao;
 
 public class LeilaoMatcher extends TypeSafeMatcher<Leilao> {
 

@@ -1,6 +1,6 @@
-package com.robsoncrafstman.testes.java.domain;
+package com.robsoncraftsman.alura.java.testes.domain;
 
-import static com.robsoncrafstman.testes.java.matcher.LeilaoMatcher.temLance;
+import static com.robsoncraftsman.alura.java.testes.matcher.LeilaoMatcher.temLance;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
@@ -9,9 +9,9 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
-import com.robsoncrafstman.testes.java.domain.expection.UsuarioNaoOfereceuLanceAnteriorParaDobrarValor;
-import com.robsoncrafstman.testes.java.domain.expection.UsuarioNaoPodeDarDoisLancesSeguidosException;
-import com.robsoncrafstman.testes.java.domain.expection.UsuarioNaoPodeDarMaisQueCincoLancesException;
+import com.robsoncraftsman.alura.java.testes.domain.expection.UsuarioNaoOfereceuLanceAnteriorParaDobrarValor;
+import com.robsoncraftsman.alura.java.testes.domain.expection.UsuarioNaoPodeDarDoisLancesSeguidosException;
+import com.robsoncraftsman.alura.java.testes.domain.expection.UsuarioNaoPodeDarMaisQueCincoLancesException;
 
 public class LeilaoTest {
 

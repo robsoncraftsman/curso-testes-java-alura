@@ -1,4 +1,4 @@
-package com.robsoncrafstman.testes.java.domain;
+package com.robsoncraftsman.alura.java.testes.domain;
 
 public class Usuario {
 

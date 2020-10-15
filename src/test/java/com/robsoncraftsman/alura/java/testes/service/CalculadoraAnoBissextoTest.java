@@ -1,4 +1,4 @@
-package com.robsoncrafstman.testes.java.service;
+package com.robsoncraftsman.alura.java.testes.service;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;

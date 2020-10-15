@@ -1,4 +1,4 @@
-# Projeto com os exercícios dos cursos de testes com Java da Alura
+# Projeto com os exercícios dos cursos de testes com Java da plataforma Alura
 
 Alterações em relação aos cursos:
 - Foram utilizadas os novos recursos da linguagem (Java 15)

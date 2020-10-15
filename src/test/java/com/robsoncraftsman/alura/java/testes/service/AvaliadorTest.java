@@ -1,4 +1,4 @@
-package com.robsoncrafstman.testes.java.service;
+package com.robsoncraftsman.alura.java.testes.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
@@ -9,9 +9,9 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.robsoncrafstman.testes.java.builder.CriadorDeLeilao;
-import com.robsoncrafstman.testes.java.domain.Leilao;
-import com.robsoncrafstman.testes.java.domain.Usuario;
+import com.robsoncraftsman.alura.java.testes.builder.CriadorDeLeilao;
+import com.robsoncraftsman.alura.java.testes.domain.Leilao;
+import com.robsoncraftsman.alura.java.testes.domain.Usuario;
 
 public class AvaliadorTest {
 

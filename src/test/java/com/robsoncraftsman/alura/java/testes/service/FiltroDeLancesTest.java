@@ -1,4 +1,4 @@
-package com.robsoncrafstman.testes.java.service;
+package com.robsoncraftsman.alura.java.testes.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -6,8 +6,8 @@ import java.util.Arrays;
 
 import org.junit.jupiter.api.Test;
 
-import com.robsoncrafstman.testes.java.domain.Lance;
-import com.robsoncrafstman.testes.java.domain.Usuario;
+import com.robsoncraftsman.alura.java.testes.domain.Lance;
+import com.robsoncraftsman.alura.java.testes.domain.Usuario;
 
 public class FiltroDeLancesTest {
 

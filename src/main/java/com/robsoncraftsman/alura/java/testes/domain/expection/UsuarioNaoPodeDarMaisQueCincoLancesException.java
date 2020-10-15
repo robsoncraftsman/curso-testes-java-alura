@@ -1,6 +1,6 @@
-package com.robsoncrafstman.testes.java.domain.expection;
+package com.robsoncraftsman.alura.java.testes.domain.expection;
 
-import com.robsoncrafstman.testes.java.domain.Usuario;
+import com.robsoncraftsman.alura.java.testes.domain.Usuario;
 
 public class UsuarioNaoPodeDarMaisQueCincoLancesException extends RuntimeException {
 

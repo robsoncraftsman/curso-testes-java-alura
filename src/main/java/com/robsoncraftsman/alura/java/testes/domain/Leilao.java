@@ -1,4 +1,4 @@
-package com.robsoncrafstman.testes.java.domain;
+package com.robsoncraftsman.alura.java.testes.domain;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -7,9 +7,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.robsoncrafstman.testes.java.domain.expection.UsuarioNaoOfereceuLanceAnteriorParaDobrarValor;
-import com.robsoncrafstman.testes.java.domain.expection.UsuarioNaoPodeDarDoisLancesSeguidosException;
-import com.robsoncrafstman.testes.java.domain.expection.UsuarioNaoPodeDarMaisQueCincoLancesException;
+import com.robsoncraftsman.alura.java.testes.domain.expection.UsuarioNaoOfereceuLanceAnteriorParaDobrarValor;
+import com.robsoncraftsman.alura.java.testes.domain.expection.UsuarioNaoPodeDarDoisLancesSeguidosException;
+import com.robsoncraftsman.alura.java.testes.domain.expection.UsuarioNaoPodeDarMaisQueCincoLancesException;
 
 public class Leilao {
 
