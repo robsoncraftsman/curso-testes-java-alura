@@ -1,6 +1,6 @@
-package com.robsoncraftsman.alura.java.testes.domain.expection;
+package com.robsoncraftsman.alura.testes.domain.expection;
 
-import com.robsoncraftsman.alura.java.testes.domain.Usuario;
+import com.robsoncraftsman.alura.testes.domain.Usuario;
 
 public class UsuarioNaoOfereceuLanceAnteriorParaDobrarValor extends RuntimeException {
 

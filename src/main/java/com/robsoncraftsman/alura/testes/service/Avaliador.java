@@ -1,12 +1,12 @@
-package com.robsoncraftsman.alura.java.testes.service;
+package com.robsoncraftsman.alura.testes.service;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.robsoncraftsman.alura.java.testes.domain.Lance;
-import com.robsoncraftsman.alura.java.testes.domain.Leilao;
+import com.robsoncraftsman.alura.testes.domain.Lance;
+import com.robsoncraftsman.alura.testes.domain.Leilao;
 
 public class Avaliador {
 

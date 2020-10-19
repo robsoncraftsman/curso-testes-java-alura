@@ -1,4 +1,4 @@
-package com.robsoncraftsman.alura.java.testes.service;
+package com.robsoncraftsman.alura.testes.service;
 
 public class CalculadoraAnoBissexto {
 
