@@ -1,5 +1,7 @@
 package com.robsoncraftsman.alura.testes.domain;
 
+import java.util.Objects;
+
 public class Usuario {
 
 	private final int id;
@@ -20,10 +22,7 @@ public class Usuario {
 
 	@Override
 	public int hashCode() {
-		final var prime = 31;
-		var result = 1;
-		result = (prime * result) + this.id;
-		return result;
+		return Objects.hash(id);
 	}
 
 	@Override
@@ -38,10 +37,7 @@ public class Usuario {
 			return false;
 		}
 		final var other = (Usuario) obj;
-		if (this.id != other.id) {
-			return false;
-		}
-		return true;
+		return (this.id == other.id);
 	}
 
 	@Override

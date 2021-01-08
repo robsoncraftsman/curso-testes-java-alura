@@ -13,7 +13,7 @@ import com.robsoncraftsman.alura.testes.builder.CriadorDeLeilao;
 import com.robsoncraftsman.alura.testes.domain.Leilao;
 import com.robsoncraftsman.alura.testes.domain.Usuario;
 
-public class AvaliadorTest {
+class AvaliadorTest {
 
 	private Avaliador avaliador;
 	private Usuario joao;
@@ -88,98 +88,98 @@ public class AvaliadorTest {
 	}
 
 	@Test
-	public void deveRetornarSomaLances() {
+	void deveRetornarSomaLances() {
 		final var leilao = criarLeilaoComLancesCrescentes();
 		final var somaLances = this.avaliador.obterSomaDosLances(leilao);
 		assertEquals(20800, somaLances, 0.00001);
 	}
 
 	@Test
-	public void deveRetornaZeroNaSomaDosLancesComLeilaoSemLances() {
+	void deveRetornaZeroNaSomaDosLancesComLeilaoSemLances() {
 		final var leilao = criarLeilaoSemLances();
 		final var somaLances = this.avaliador.obterSomaDosLances(leilao);
 		assertEquals(0, somaLances, 0.00001);
 	}
 
 	@Test
-	public void deveRetornarMediaLances() {
+	void deveRetornarMediaLances() {
 		final var leilao = criarLeilaoComLancesCrescentes();
 		final var mediaLances = this.avaliador.obterMediaDosLances(leilao);
 		assertEquals(4160, mediaLances, 0.00001);
 	}
 
 	@Test
-	public void deveRetornarZeroNaMediaLancesComLeilaoSemLances() {
+	void deveRetornarZeroNaMediaLancesComLeilaoSemLances() {
 		final var leilao = criarLeilaoSemLances();
 		final var mediaLances = this.avaliador.obterMediaDosLances(leilao);
 		assertEquals(0, mediaLances, 0.00001);
 	}
 
 	@Test
-	public void deveRetornarMenorLanceComLancesCrescentes() {
+	void deveRetornarMenorLanceComLancesCrescentes() {
 		final var leilao = criarLeilaoComLancesCrescentes();
 		final var menorLance = this.avaliador.obterMenorLance(leilao);
 		assertEquals(2000, menorLance.getValor(), 0.00001);
 	}
 
 	@Test
-	public void deveRetornarMenorLanceComLancesAleatorios() {
+	void deveRetornarMenorLanceComLancesAleatorios() {
 		final var leilao = criarLeilaoComLancesAleatorios();
 		final var menorLance = this.avaliador.obterMenorLance(leilao);
 		assertEquals(2500, menorLance.getValor(), 0.00001);
 	}
 
 	@Test
-	public void deveRetornarMenorLanceComLancesDecrescentes() {
+	void deveRetornarMenorLanceComLancesDecrescentes() {
 		final var leilao = criarLeilaoComLancesDecrescentes();
 		final var menorLance = this.avaliador.obterMenorLance(leilao);
 		assertEquals(1200, menorLance.getValor(), 0.00001);
 	}
 
 	@Test
-	public void deveRetornarMenorLanceComApenasUmLance() {
+	void deveRetornarMenorLanceComApenasUmLance() {
 		final var leilao = criarLeilaoComUmLance();
 		final var menorLance = this.avaliador.obterMenorLance(leilao);
 		assertEquals(2700, menorLance.getValor(), 0.00001);
 	}
 
 	@Test
-	public void deveRetornarNullNoMenorLanceComLeilaoSemLances() {
+	void deveRetornarNullNoMenorLanceComLeilaoSemLances() {
 		final var leilao = criarLeilaoSemLances();
 		final var menorLance = this.avaliador.obterMenorLance(leilao);
 		assertNull(menorLance);
 	}
 
 	@Test
-	public void deveRetornarMaiorLanceComLancesCrescentes() {
+	void deveRetornarMaiorLanceComLancesCrescentes() {
 		final var leilao = criarLeilaoComLancesCrescentes();
 		final var maiorLance = this.avaliador.obterMaiorLance(leilao);
 		assertEquals(5200, maiorLance.getValor(), 0.00001);
 	}
 
 	@Test
-	public void deveRetornarMaiorLanceComLancesAleatorios() {
+	void deveRetornarMaiorLanceComLancesAleatorios() {
 		final var leilao = criarLeilaoComLancesAleatorios();
 		final var maiorLance = this.avaliador.obterMaiorLance(leilao);
 		assertEquals(4500, maiorLance.getValor(), 0.00001);
 	}
 
 	@Test
-	public void deveRetornarMaiorLanceComLancesDecrescentes() {
+	void deveRetornarMaiorLanceComLancesDecrescentes() {
 		final var leilao = criarLeilaoComLancesDecrescentes();
 		final var maiorLance = this.avaliador.obterMaiorLance(leilao);
 		assertEquals(3000, maiorLance.getValor(), 0.00001);
 	}
 
 	@Test
-	public void deveRetornarMaiorLanceComApenasUmLance() {
+	void deveRetornarMaiorLanceComApenasUmLance() {
 		final var leilao = criarLeilaoComUmLance();
 		final var maiorLance = this.avaliador.obterMaiorLance(leilao);
 		assertEquals(2700, maiorLance.getValor(), 0.00001);
 	}
 
 	@Test
-	public void deveRetornarNullNoMaiorLanceComLeilaoSemLances() {
+	void deveRetornarNullNoMaiorLanceComLeilaoSemLances() {
 		final var leilao = criarLeilaoSemLances();
 		final var avaliador = new Avaliador();
 		final var maiorLance = avaliador.obterMaiorLance(leilao);
@@ -187,7 +187,7 @@ public class AvaliadorTest {
 	}
 
 	@Test
-	public void deveRetornarTresMaioresLances() {
+	void deveRetornarTresMaioresLances() {
 		final var leilao = criarLeilaoComLancesCrescentes();
 		final var maioresLances = this.avaliador.obterTresMaioresLances(leilao);
 		assertEquals(3, maioresLances.size());
@@ -197,7 +197,7 @@ public class AvaliadorTest {
 	}
 
 	@Test
-	public void devePedirTresMaioresLancesComApenasUmLanceERetornarApenasLanceExistente() {
+	void devePedirTresMaioresLancesComApenasUmLanceERetornarApenasLanceExistente() {
 		final var leilao = criarLeilaoComUmLance();
 		final var maioresLances = this.avaliador.obterTresMaioresLances(leilao);
 		assertEquals(1, maioresLances.size());
@@ -205,7 +205,7 @@ public class AvaliadorTest {
 	}
 
 	@Test
-	public void devePedirTresMaioresLancesComLeilaoSemLancesERetornarListaVazia() {
+	void devePedirTresMaioresLancesComLeilaoSemLancesERetornarListaVazia() {
 		final var leilao = criarLeilaoSemLances();
 		final var maioresLances = this.avaliador.obterTresMaioresLances(leilao);
 		assertEquals(0, maioresLances.size());

@@ -13,13 +13,13 @@ import com.robsoncraftsman.alura.testes.domain.expection.UsuarioNaoOfereceuLance
 import com.robsoncraftsman.alura.testes.domain.expection.UsuarioNaoPodeDarDoisLancesSeguidosException;
 import com.robsoncraftsman.alura.testes.domain.expection.UsuarioNaoPodeDarMaisQueCincoLancesException;
 
-public class LeilaoTest {
+class LeilaoTest {
 
 	private final Usuario joao = new Usuario(1, "João");
 	private final Usuario maria = new Usuario(2, "Maria");
 
 	@Test
-	public void deveReceberUmLance() {
+	void deveReceberUmLance() {
 		final var leilao = new Leilao("Carro Novo");
 		assertThat(leilao.getLances().size(), is(0));
 
@@ -31,7 +31,7 @@ public class LeilaoTest {
 	}
 
 	@Test
-	public void deveReceberDoisLances() {
+	void deveReceberDoisLances() {
 		final var leilao = new Leilao("Carro Novo");
 		final var lanceJoao = new Lance(this.joao, 200);
 		final var lanceMaria = new Lance(this.maria, 300);
@@ -43,7 +43,7 @@ public class LeilaoTest {
 	}
 
 	@Test
-	public void naoDevePermitirDoisLancesComMesmoValor() {
+	void naoDevePermitirDoisLancesComMesmoValor() {
 		final var valor = 2000d;
 		final var leilao = new Leilao("Carro Novo");
 		leilao.lance(this.joao, valor);
@@ -56,7 +56,7 @@ public class LeilaoTest {
 	}
 
 	@Test
-	public void naoDeveAceitarDoisLancesSeguidosDoMesmoUsuario() {
+	void naoDeveAceitarDoisLancesSeguidosDoMesmoUsuario() {
 		final var leilao = new Leilao("Carro Novo");
 		leilao.lance(this.joao, 200);
 
@@ -69,7 +69,7 @@ public class LeilaoTest {
 	}
 
 	@Test
-	public void naoDeveAceitarMaisQueCincoLancesDoMesmoUsuario() {
+	void naoDeveAceitarMaisQueCincoLancesDoMesmoUsuario() {
 		final var leilao = new Leilao("Carro Novo");
 
 		leilao.lance(this.joao, 200);
@@ -93,7 +93,7 @@ public class LeilaoTest {
 	}
 
 	@Test
-	public void deveDobrarValorUltimoLanceUsuario() {
+	void deveDobrarValorUltimoLanceUsuario() {
 		final var leilao = new Leilao("Carro Novo");
 		leilao.lance(this.joao, 100);
 		leilao.lance(this.maria, 200);
@@ -113,7 +113,7 @@ public class LeilaoTest {
 	}
 
 	@Test
-	public void naoDeveDobrarLanceUsuarioSemLances() {
+	void naoDeveDobrarLanceUsuarioSemLances() {
 		final var leilao = new Leilao("Carro Novo");
 
 		final var resultException = assertThrows(UsuarioNaoOfereceuLanceAnteriorParaDobrarValor.class, () -> {
@@ -125,7 +125,7 @@ public class LeilaoTest {
 	}
 
 	@Test
-	public void naoDevePermitirLanceIgualZero() {
+	void naoDevePermitirLanceIgualZero() {
 		final var leilao = new Leilao("Carro Novo");
 
 		final var resultException = assertThrows(IllegalArgumentException.class, () -> {
@@ -136,7 +136,7 @@ public class LeilaoTest {
 	}
 
 	@Test
-	public void naoDevePermitirLanceMenorZero() {
+	void naoDevePermitirLanceMenorZero() {
 		final var leilao = new Leilao("Carro Novo");
 
 		final var resultException = assertThrows(IllegalArgumentException.class, () -> {

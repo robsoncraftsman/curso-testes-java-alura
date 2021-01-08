@@ -5,10 +5,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
-public class CalculadoraAnoBissextoTest {
+class CalculadoraAnoBissextoTest {
 
 	@Test
-	public void deveRetornatTrueParaAnosBissextos() {
+	void deveRetornatTrueParaAnosBissextos() {
 		assertTrue(CalculadoraAnoBissexto.ehBissexto(400));
 		assertTrue(CalculadoraAnoBissexto.ehBissexto(800));
 		assertTrue(CalculadoraAnoBissexto.ehBissexto(1996));
@@ -18,7 +18,7 @@ public class CalculadoraAnoBissextoTest {
 	}
 
 	@Test
-	public void deveRetornatFalseParaAnosNaoBissextos() {
+	void deveRetornatFalseParaAnosNaoBissextos() {
 		assertFalse(CalculadoraAnoBissexto.ehBissexto(100));
 		assertFalse(CalculadoraAnoBissexto.ehBissexto(200));
 		assertFalse(CalculadoraAnoBissexto.ehBissexto(1000));

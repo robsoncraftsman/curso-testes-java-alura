@@ -8,9 +8,6 @@ public class CriadorDeLeilao {
 
 	private Leilao leilao;
 
-	public CriadorDeLeilao() {
-	}
-
 	public CriadorDeLeilao para(final String descricao) {
 		this.leilao = new Leilao(descricao);
 		return this;

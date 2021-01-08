@@ -11,9 +11,9 @@ public class FiltroDeLances {
 		final var resultado = new ArrayList<Lance>();
 
 		for (final Lance lance : lances) {
-			if ((lance.getValor() > 1000) && (lance.getValor() < 3000)) {
+			if ((lance.getValor() > 500) && (lance.getValor() < 700)) {
 				resultado.add(lance);
-			} else if ((lance.getValor() > 500) && (lance.getValor() < 700)) {
+			} else if ((lance.getValor() > 1000) && (lance.getValor() < 3000)) {
 				resultado.add(lance);
 			} else if (lance.getValor() > 5000) {
 				resultado.add(lance);

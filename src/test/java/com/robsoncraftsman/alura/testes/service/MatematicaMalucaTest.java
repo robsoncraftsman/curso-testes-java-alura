@@ -3,7 +3,7 @@ package com.robsoncraftsman.alura.testes.service;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class MatematicaMalucaTest {
+class MatematicaMalucaTest {
 
 	public static final int MENOS_TRINTA = -30;
 	public static final int MENOS_DEZ = -10;
@@ -17,7 +17,7 @@ public class MatematicaMalucaTest {
 	public static final int MIL = 1000;
 
 	@Test
-	public void deveMultiplicarPorDoisNumerosMenoresIguaisADez() {
+	void deveMultiplicarPorDoisNumerosMenoresIguaisADez() {
 		final var matematicaMaluca = new MatematicaMaluca();
 		final var multiplicador = 2;
 		Assertions.assertEquals(DEZ * multiplicador, matematicaMaluca.contaMaluca(DEZ));
@@ -28,7 +28,7 @@ public class MatematicaMalucaTest {
 	}
 
 	@Test
-	public void deveMultiplicarPorTresNumerosMaioresQueDezEMenoresIguaisATrinta() {
+	void deveMultiplicarPorTresNumerosMaioresQueDezEMenoresIguaisATrinta() {
 		final var matematicaMaluca = new MatematicaMaluca();
 		final var multiplicador = 3;
 		Assertions.assertEquals(ONZE * multiplicador, matematicaMaluca.contaMaluca(ONZE));
@@ -37,7 +37,7 @@ public class MatematicaMalucaTest {
 	}
 
 	@Test
-	public void deveMultiplicarPorQuatroNumerosMaioresQueTrinta() {
+	void deveMultiplicarPorQuatroNumerosMaioresQueTrinta() {
 		final var matematicaMaluca = new MatematicaMaluca();
 		final var multiplicador = 4;
 		Assertions.assertEquals(TRINTA_E_UM * multiplicador, matematicaMaluca.contaMaluca(TRINTA_E_UM));
